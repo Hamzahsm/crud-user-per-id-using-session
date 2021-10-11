@@ -3,8 +3,9 @@
     $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
 //   session_start();
 //     $id=$_SESSION['id'];
-//     $query=mysqli_query($db,"SELECT * FROM reseller where id='$id'")or die(mysqli_error());
-//     $row=mysqli_fetch_array($query); 
+    $id=$_GET['id'];
+    $query=mysqli_query($db,"SELECT * FROM reseller where id='$id'")or die(mysqli_error());
+    $row=mysqli_fetch_array($query); 
 
 ?>
 
