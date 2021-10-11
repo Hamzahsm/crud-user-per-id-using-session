@@ -8,15 +8,17 @@
     $row = mysqli_fetch_array($query)
     $_SESSION["id"] = $row['id'];
     if ($num_rows > 0) {
-        echo "<script>Query Id Berhasil</script>"
+        echo "<script>alert('Query Berhasil');</script>"
+    } else {
+        echo "<script>alert('Query Gagal');</script>"
     }
 ?>
-<!-- <?php 
-$email = $_SESSION['email'];
-if($email == false){
-  header('Location: reseller.php');
-} 
-?> -->
+<?php 
+// $email = $_SESSION['email'];
+// if($email == false){
+//   header('Location: reseller.php');
+// } 
+?>
 
 <!doctype html>
 <html lang="en" >
@@ -118,7 +120,7 @@ if($email == false){
 <div class="row">
   <div class="col-lg col-md-6 col-sm-6 mb-4" data-aos="flip-left" data-aos-duration="500" data-aos-easing="ease-in-out">
 
-    <div class="stats-small stats-small--1 card card-small">
+    <div class="stats-small stats-small--1 card card-small" name="editbio">
       <!-- data satu -->
         <a class="card-body p-0 d-flex" href="edit-bio-reseller.php" data-toggle="" data-target="">
           <div class="d-flex flex-column m-auto">

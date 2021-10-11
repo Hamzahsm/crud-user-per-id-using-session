@@ -1,55 +1,10 @@
 <?php require_once "controllerUserData-reseller.php"; ?>
 <?php 
-// include auth_session.php file on all user panel pages
-// $email = $_SESSION['email'] OR $_SESSION['name'];
-// $password = $_SESSION['password'];
-// if($email != false && $password != false){
-//     $sql = "SELECT * FROM reseller WHERE email = '$email' OR name = '$email'";
-//     $run_Sql = mysqli_query($con, $sql);
-//     if($run_Sql){
-//         $fetch_info = mysqli_fetch_assoc($run_Sql);
-//         $status = $fetch_info['status'];
-//         $code = $fetch_info['code'];  
-//         if($status == "verified"){
-//             if($code != 0){ 
-//                 header('Location: reset-code-reseller.php');
-//             } 
-//         }else{
-//             header('Location: user-otp-reseller.php');
-//         }
-//     }
-// }else{
-//     header('Location: super-admin.php');
-// }
-
-// $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
-// Check connection
-// if (mysqli_connect_errno()){
-//     echo "Failed to connect to MySQL: " . mysqli_connect_error();
-// }
-// function query($datas) {
-//  global $con;
-//  $result = mysqli_query($con, $datas); 
-//  $datakosong = [];
-
-//  while( $isidata = mysqli_fetch_assoc($result)) {
-//      $datakosong[] = $isidata;
-//  }
-
-//  return $datakosong; 
-// }
-
-// $datas = query("SELECT * FROM reseller");
-session_start();
-$con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
-
-$query = mysqli_query($con, "SELECT * FROM reseller");
-$num_rows = mysqli_num_rows($query);
-$row = mysqli_fetch_array($query)
-$_SESSION["id"] = $row['id'];
-if ($num_rows > 0) {
-    echo "<script>Query Id Berhasil</script>"
-}
+    $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
+  session_start();
+    $id=$_SESSION['id'];
+    $query=mysqli_query($db,"SELECT * FROM reseller where id='$id'")or die(mysqli_error());
+    $row=mysqli_fetch_array($query); 
 
 ?>
 
@@ -86,16 +41,40 @@ if ($num_rows > 0) {
         <h3> Silahkan Edit Bio Anda Dibawah Sini</h3>
     </div>
 
-<!-- table data start here -->
+<div class="">
+    <form action="" method="POST">
+        <label for="">Username : </label>
+        <input type="text" class="form-control" name="username" value="<?php echo $row['username'] ?>">
 
-    <div class="row mt-5">
+        <label for="">Email : </label>
+        <input type="text" class="form-control" name="email" value="<?php echo $row['email'] ?>">
+
+        <label for="">Nama Lengkap : </label>
+        <input type="text" class="form-control" name="name" value="<?php echo $row['name'] ?>">
+
+        <label for="">Nomor Telepon : </label>
+        <input type="text" class="form-control" name="nomortelepon" value="<?php echo $row['nomortelepon'] ?>">
+
+        <label for="">Alamat : </label>
+        <input type="text" class="form-control" name="alamat" value="<?php echo $row['alamat'] ?>">
+
+        <button type="submit" name="submit">Update</button>
+
+    </form>
+</div>
+
+
+
+
+<!-- table data start here --> 
+
+    <!-- <div class="row mt-5">
         <div class="col">
                 
         </div>
         <div class="col-10">
         <table class="table" style="box-shadow: 5px 5px 5px silver;">
             <thead class="table-dark">
-                <?php $i = 1; ?>
                 <tr>
                 <th scope="col">No</th>
                 <th scope="col">Username</th>
@@ -106,27 +85,43 @@ if ($num_rows > 0) {
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($datas as $data) :?>
                 <tr>
-                <td><?= $i; ?></td>
-                <td><?= $data["username"]; ?></td>
-                <td><?= $data["email"]; ?></td> 
-                <td><?= $data["name"];?></td>
-                <td><?= $data["nomortelepon"];?></td>
-                <td><?= $data["alamat"];?></td>
+                <td><?= $row["username"]; ?></td>
+                <td><?= $row["email"]; ?></td> 
+                <td><?= $row["name"];?></td>
+                <td><?= $row["nomortelepon"];?></td>
+                <td><?= $row["alamat"];?></td>
                 </tr>
-                <?php $i++;?>
-            <?php endforeach; ?>
             </tbody>
         </table>
         </div>
         <div class="col">
 
         </div>
-    </div>
+    </div> -->
 </main>
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </body>
 </html> 
+
+<?php 
+if(isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $name = $_POST['name'];
+    $nomortelepon = $_POST['nomortelepon'];
+    $alamat = $_POST['alamat'];
+
+    $query = "UPDATE reseller SET username = '$username', email = '$email', name = '$name', nomortelepon = '$nomortelepon', alamat = '$alamat'";
+
+    $result = mysqli_query($con, $query) or die (mysqli_error($con));
+
+}
+
+
+
+
+
+?>
