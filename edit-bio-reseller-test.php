@@ -29,7 +29,7 @@
     <div class="col-8">
     </div>
     <div class="col text-center">
-    <h5 style="line-height: 70px;"> <a href="edit-profil-reseller.php" style="text-decoration: none;">KEMBALI</a></h5>
+    <h5 style="line-height: 70px;"> <a href="edit-profil-reseller-test.php" style="text-decoration: none;">KEMBALI</a></h5>
     </div>
 </div>
 
