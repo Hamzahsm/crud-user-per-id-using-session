@@ -1,23 +1,17 @@
 <?php require_once "controllerUserData-reseller.php"; ?>
 <?php 
-    session_start();
-    $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
+    // session_start();
+    // $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
 
-    $query = mysqli_query($con, "SELECT * FROM reseller");
-    $num_rows = mysqli_num_rows($query);
-    $row = mysqli_fetch_array($query)
-    $_SESSION["id"] = $row['id'];
-    if ($num_rows > 0) {
-        echo "<script>alert('Query Berhasil');</script>"
-    } else {
-        echo "<script>alert('Query Gagal');</script>"
-    }
-?>
-<?php 
-// $email = $_SESSION['email'];
-// if($email == false){
-//   header('Location: reseller.php');
-// } 
+    // $query = mysqli_query($con, "SELECT * FROM reseller");
+    // $num_rows = mysqli_num_rows($query);
+    // $row = mysqli_fetch_array($query)
+    // $_SESSION["id"] = $row['id'];
+    // if ($num_rows > 0) {
+    //     echo "<script>alert('Query Berhasil');</script>"
+    // } else {
+    //     echo "<script>alert('Query Gagal');</script>"
+    // }
 ?>
 
 <!doctype html>
