@@ -1,10 +1,10 @@
 <?php require_once "controllerUserData-reseller.php"; ?>
 <?php 
     $con = mysqli_connect("localhost","u705028021_loginsystem","Loginsystem321","u705028021_loginsystem");
-  session_start();
-    $id=$_SESSION['id'];
-    $query=mysqli_query($db,"SELECT * FROM reseller where id='$id'")or die(mysqli_error());
-    $row=mysqli_fetch_array($query); 
+//   session_start();
+//     $id=$_SESSION['id'];
+//     $query=mysqli_query($db,"SELECT * FROM reseller where id='$id'")or die(mysqli_error());
+//     $row=mysqli_fetch_array($query); 
 
 ?>
 
