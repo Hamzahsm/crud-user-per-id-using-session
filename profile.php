@@ -13,7 +13,7 @@
     $row=mysqli_fetch_array($query); 
   ?>
   <h1>User Profile</h1>
-    <div class="profile-input-field">
+    <div class="profile-input-field"> 
             <h3>Please Fill-out All Fields</h3>
             <form method="post" action="#" >
             <div class="form-group">
