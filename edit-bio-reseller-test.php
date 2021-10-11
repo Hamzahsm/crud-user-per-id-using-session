@@ -4,7 +4,7 @@
 //   session_start();
 //     $id=$_SESSION['id'];
     $id=$_GET['id'];
-    $query=mysqli_query($db,"SELECT * FROM reseller where id='$id'")or die(mysqli_error());
+    $query=mysqli_query($con,"SELECT * FROM reseller where id='$id'")or die(mysqli_error());
     $row=mysqli_fetch_array($query); 
 
 ?>
