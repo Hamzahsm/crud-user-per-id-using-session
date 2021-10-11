@@ -116,7 +116,7 @@
 
     <div class="stats-small stats-small--1 card card-small" name="editbio">
       <!-- data satu -->
-        <a class="card-body p-0 d-flex" href="edit-bio-reseller.php" data-toggle="" data-target="">
+        <a class="card-body p-0 d-flex" href="edit-bio-reseller-test.php" data-toggle="" data-target="">
           <div class="d-flex flex-column m-auto">
             <div class="stats-small__data text-center">
               <i class="fas fa-user" style="font-size:48px; color: #570000;"></i>
